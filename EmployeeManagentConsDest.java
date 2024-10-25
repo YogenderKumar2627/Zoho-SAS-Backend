@@ -1,13 +1,5 @@
 package day1;
 
-public class EmployeeManagentConsDest {
-    public static void main(String[] args) {
-        TeamManagement team = new TeamManagement("Frontend", "Making pixels dance");
-        team.displayTask();
-        team = null;
-        System.gc();
-    }
-}
 
 class TeamManagement {
     public String teamname;
@@ -29,7 +21,23 @@ class TeamManagement {
      */
     @Override
     protected void finalize() throws Throwable {
-        System.out.println("The team " + teamname + " is terminated (finalize called)");
+        System.out.println("The team " + teamname + " is demolished (finalize called)");
+    }
+}
+
+
+
+public class EmployeeManagentConsDest {
+    public static void main(String[] args) {
+        TeamManagement team = new TeamManagement("Frontend", "Making pixels dance");
+        team.displayTask();
+        team = null;
+        System.gc();
+        try {
+            Thread.sleep(10);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
 
