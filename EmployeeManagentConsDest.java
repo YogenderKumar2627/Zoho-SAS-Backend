@@ -29,7 +29,7 @@ class TeamManagement {
      */
     @Override
     protected void finalize() throws Throwable {
-        System.out.println("The team " + teamname + " is demolished (finalize called)");
+        System.out.println("The team " + teamname + " is terminated (finalize called)");
     }
 }
 
